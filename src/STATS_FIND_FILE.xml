@@ -1,0 +1,15 @@
+<Command xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="extension-1.0.xsd" Name="STATS FIND FILE" Language="Python">
+	<Subcommand Name="" IsArbitrary="False" Occurrence="Optional">
+		<Parameter Name="FILENAME" ParameterType="QuotedString"/>
+		<Parameter Name="FILEHANDLE" ParameterType="VariableName"/>
+		<Parameter Name="FOLDERLIST" ParameterType="QuotedString"/>
+		<Parameter Name="ENVVARIABLE" ParameterType="QuotedString"/>
+		<Parameter Name="SEARCHSUBFOLDERS" ParameterType="Keyword"/>
+		<Parameter Name="HELP" ParameterType="LeadingToken"/>
+	</Subcommand>
+	<Subcommand Name="OPTIONS" Occurrece="Optional">
+		<Parameter Name="PRINTSEARCH" ParameterType="Keyword"/>
+		<Parameter Name="PRINTHANDLE" ParameterType="Keyword"/>
+	</Subcommand>
+	<Subcommand Name="HELP" Occurrence="Optional"/>
+</Command>
