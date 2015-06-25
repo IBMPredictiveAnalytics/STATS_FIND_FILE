@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>STATS FIND FILE Extension Command</title>
+
+<link rel="stylesheet" type="text/css" href="extsyntax.css" />
+
+
+
+
+
+</head>
+
+<body>
+<h1>STATS FIND FILE Extension Command</h1>
+
+<p>Define a file handle for the folder where the first instance
+of the specified file or wildcard is found.</p>
+<div class="syntax">
+<p>STATS FIND FILE 
+FILENAME = &ldquo;<em>file</em>&rdquo;<sup>&#42;</sup><br/>
+FILEHANDLE = <em>handle</em><sup>&#42;</sup><br/>
+FOLDERLIST = &ldquo;<em>semicolon-separated list of folders</em>&rdquo;<br/>
+ENVVARIABLE = &ldquo;<em>semi-colon-separated environment variable names</em>&rdquo;<br/>
+SEARCHSUBFOLDERS = YES or NO<sup>&#42;&#42;</sup></p>
+
+<p>/OPTIONS<br/>
+PRINTSEARCH = YES or NO<sup>&#42;&#42;</sup><br/>
+PRINTHANDLE = YES<sup>&#42;&#42;</sup> or NO</p>
+
+<p>/HELP</p>
+
+<p><sup>&#42;</sup> Required<br/>
+<sup>&#42;&#42;</sup> Default</p>
+</div>
+<p>/HELP displays this help and does nothing else.</p>
+
+
+<pre class="example"><code>STATS FIND FILE FILENAME=&quot;employee data.*&quot; FILEHANDLE=employee
+FOLDERLIST=&quot;c:/spss/samples/english;c:/data&quot;.
+</code></pre>
+
+<p><strong>FILENAME</strong> specifies the file or file wildcard to locate.</p>
+
+<p><strong>FILEHANDLE</strong> specifies the name of the handle to be assigned.</p>
+
+<p>Specify either or both of <strong>FOLDERLIST</strong> and <strong>ENVVARIABLE</strong>.  FOLDERLIST
+is a string in quotes listing the folder or folders to search.  Separate
+folder specifications with a semi-colon.</p>
+
+<p><strong>ENVVARIABLE</strong> is a string in quotes listing one or more environment variables
+that list a folder or folders to search.  Again, specifications are separated by
+a semicolon.  By using this feature, you can avoid the need to specify
+specific locations for files, leaving that to your system or user environment.</p>
+
+<p>If both FOLDERLIST and ENVVARIABLE are specified, the FOLDERLIST
+is searched first.</p>
+
+<p>By default, only the listed locations are searched.  Specify 
+<strong>SEARCHSUBFOLDERS</strong>=YES to search all the subfolders of folders listed.</p>
+
+<h2>OPTIONS</h2>
+
+<p>By default, the generated handle is displayed.  Specify <strong>PRINTHANDLE</strong>=NO
+to suppress this.</p>
+
+<p>Specify <strong>PRINTSEARCH</strong>=YES to display a table listing all the locations
+searched in the order they were searched.</p>
+
+<p>If a listed folder or environment variable does not exist, it is ignored.</p>
+
+<p>If the specified file is not found, an error is raised.</p>
+
+<p>&copy; Copyright IBM Corp. 1989, 2014</p>
+
+</body>
+
+</html>
+
