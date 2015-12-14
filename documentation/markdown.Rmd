@@ -1,0 +1,62 @@
+STATS FIND FILE Extension Command
+=================================
+
+Define a file handle for the folder where the first instance
+of the specified file or wildcard is found.
+
+STATS FIND FILE 
+FILENAME = "*file*"^&#42;  
+FILEHANDLE = *handle*^&#42;  
+FOLDERLIST = "*semicolon-separated list of folders*"  
+ENVVARIABLE = "*semi-colon-separated environment variable names*"  
+SEARCHSUBFOLDERS = YES or NO^&#42;&#42;
+
+/OPTIONS  
+PRINTSEARCH = YES or NO^&#42;&#42;  
+PRINTHANDLE = YES^&#42;&#42; or NO
+
+/HELP
+
+^&#42; Required  
+^&#42;&#42; Default
+
+/HELP displays this help and does nothing else.
+
+Example:
+```
+STATS FIND FILE FILENAME="employee data.*" FILEHANDLE=employee
+FOLDERLIST="c:/spss/samples/english;c:/data".
+```
+
+**FILENAME** specifies the file or file wildcard to locate.
+
+**FILEHANDLE** specifies the name of the handle to be assigned.
+
+Specify either or both of **FOLDERLIST** and **ENVVARIABLE**.  FOLDERLIST
+is a string in quotes listing the folder or folders to search.  Separate
+folder specifications with a semi-colon.
+
+**ENVVARIABLE** is a string in quotes listing one or more environment variables
+that list a folder or folders to search.  Again, specifications are separated by
+a semicolon.  By using this feature, you can avoid the need to specify
+specific locations for files, leaving that to your system or user environment.
+
+If both FOLDERLIST and ENVVARIABLE are specified, the FOLDERLIST
+is searched first.
+
+By default, only the listed locations are searched.  Specify 
+**SEARCHSUBFOLDERS**=YES to search all the subfolders of folders listed.
+
+OPTIONS
+-------
+By default, the generated handle is displayed.  Specify **PRINTHANDLE**=NO
+to suppress this.
+
+Specify **PRINTSEARCH**=YES to display a table listing all the locations
+searched in the order they were searched.
+
+If a listed folder or environment variable does not exist, it is ignored.
+
+If the specified file is not found, an error is raised.
+
+(C) Copyright IBM Corp. 1989, 2014

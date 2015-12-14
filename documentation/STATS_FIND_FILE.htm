@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Define a File Handle Pointing to the Location of a Specified File</title>
+<STYLE TYPE="text/css"> 
+<!-- 
+
+H1 {font-weight:bold; color:#006699; font-family:Verdana, Arial, sans-serif;font-size:125%; }
+H2 {font-weight:bold; color:#006699; font-family:Verdana, Arial, sans-serif;font-size:110%; }
+BODY {font-family:Verdana, Arial, sans-serif;font-size:80%; }
+TABLE {font-size:100%;font-family:Verdana, Arial, sans-serif;}
+
+/* paragraph tags */
+.step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+.step-glyph { font-family: Arial, Helvetica, sans-serif; }
+.menuselection {margin-left:10px}
+.bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+.codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;font-family:"courier new",monospace; }
+
+/* inline tags */
+.code {font-family: Courier,fixed pitch;}                           /*** used to tag pieces of code (syntax, Python, R, HTML, etc.)   ***/
+.screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+.name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+.runinhead {font-weight: bold} 
+.superscript {vertical-align:super; font-size:80%}
+.subscript {vertical-align:sub; font-size:80%}
+.symbol {font-family: Symbol}
+
+--> 
+</STYLE>
+</head>
+<body>
+<h1>Define a File Handle Pointing to the Location of a Specified File</h1>
+The command creates a file handle pointing to the location where a file
+is found following a specified search strategy.  The strategy consists of a
+list of locations to look in.  This can be a list of folders and/or
+a list of environment variables whose values are lists of folders.  The first
+location containing the file is the one used in defining the handle.
+<p>
+By using this command, you can create jobs that do not have to know exactly where their
+input data and syntax files reside.
+<p>The file specification can be a complete name or it can be a 
+wildcard expression.  Path information is not specified.
+<p><span class="runinhead">File or Wildcard to Find.</span> 
+Specify a file name or wildcard expression to search for. An example of a wildcard
+expression is.
+<br>
+x*.sav
+<br>
+which means a file whose name starts with x and has extension sav.</p>
+<p class="bullet">&bull; If the file system is case sensitive, the file search
+will also be case sensitive.</p>
+
+<p><span class="runinhead">Folders to Search</span> Enter the path to a folder or a list
+of paths separated by a semicolon.  For example,
+<br>
+c:\currentproject;c:\data
+<br>
+<p><span class="runinhead">Environment Variables to Search</span> Enter the name
+of an environment variable or a list of environment variables separated by a semicolon.
+The values of the environment variables should be lists of folders as above or in a 
+typical PATH environment variable.  For example, if MYDATA is defined as
+<br>
+c:\projectdata;c:\standarddata
+<br>
+then specifying MYDATA would be equivalent to having specified these folders in
+the first control.
+<p>The method for creating environment variables differs according to the
+operating system.  On Windows, you can go to 
+Control Panel>System>Advanced>Environment Variables
+to define them.
+<p>
+<p class="bullet">&bull; You must specify at least one of these two controls.  If both are specified,
+the folder lists are searched first.
+<p class="bullet">&bull; If a specified location or environment variable does not
+exist, it is ignored.
+<p><span class="runinhead">Search subfolders.</span> 
+Check this box to search the subfolders of the specified locations
+as well as the locations themselves.  All the subfolders of a location are
+searched before proceeding to the next location.
+
+<p><span class="runinhead">File Handle to Create.</span> Enter the name
+for the handle to create.  If the file is not found in any of the specified locations,
+an error is raised, and the handle is not defined.
+<p class="bullet">&bull; The rules for handle names are the same as for variables.
+<p class="bullet">&bull; If the file handle had been defined previously, that
+definition remains in case of an error in this command.
+<p><span class="runinhead">Output Options.</span> 
+Check the boxes to determine the output in the Viewer.  The first checkbox
+causes a small table to be produced that shows the definition.  (SHOW HANDLES
+can be used to display all the handle definitions.)  Check the second box
+to display a list of the locations that were searched in the order that they
+were searched.
+
+<h2>Additional Features</h2>
+<p>
+This dialog generates syntax for the STATS FIND FILE extension command. To display help for this command,
+run the following syntax:
+</p>
+<p class="codeblock">STATS FIND FILE /HELP.</p>
+
+
+<h2>Requirements</h2>
+This command requires the Python Programmability Plug-in,
+You can download
+it from SPSS Developer Central (www.spss.com/devcentral).
+
