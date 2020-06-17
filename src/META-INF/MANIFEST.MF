@@ -2,7 +2,7 @@ Name: STATS FIND FILE
 Dialog-Specs: STATS_FIND_FILE.spd
 Command-Specs: STATS_FIND_FILE.xml
 Code-Files: STATS_FIND_FILE.py
-Misc-Files: markdown.html,extsyntax.css,IBMdialogicon.png
+Misc-Files: extsyntax.css,IBMdialogicon.png,markdown.html
 Summary: Create file handle in location of a searched for file
 Description: By using this command, you can create jobs that do not ha
  ve to know exactly where their input data and syntax files reside.  T
@@ -12,6 +12,8 @@ Description: By using this command, you can create jobs that do not ha
   and/or a list of environment variables whose values are lists of fol
  ders.  
 Author: JKP, IBM SPSS
-Version: 1.0.3
-Product-Version: 18
+Version: 2.0.3
+Product-Version: 24
+Product-Version-Maximum: 99
 Plugins: Python
+Python-Version: 3

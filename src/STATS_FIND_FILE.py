@@ -1,10 +1,10 @@
-from __future__ import with_statement
+
 #/***********************************************************************
 # * Licensed Materials - Property of IBM 
 # *
 # * IBM SPSS Products: Statistics Common
 # *
-# * (C) Copyright IBM Corp. 1989, 2014
+# * (C) Copyright IBM Corp. 1989, 2020
 # *
 # * US Government Users Restricted Rights - Use, duplication or disclosure
 # * restricted by GSA ADP Schedule Contract with IBM Corp. 
@@ -12,10 +12,6 @@ from __future__ import with_statement
 
 """STATS FIND FILE extension command"""
 
-#Licensed Materials - Property of IBM
-#IBM SPSS Products: Statistics General
-#(c) Copyright IBM Corp. 2010, 2011
-#US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 
 __author__ =  'SPSS, JKP'
 __version__=  '1.0.2'
@@ -157,7 +153,7 @@ def makehandle(dir, handle):
 def Run(args):
     """Execute the STATS FIND FILE extension command"""
 
-    args = args[args.keys()[0]]
+    args = args[list(args.keys())[0]]
 
     oobj = Syntax([
         Template("FILENAME", subc="",  ktype="literal", var="filename"),
@@ -178,7 +174,7 @@ def Run(args):
             return msg
         
     # A HELP subcommand overrides all else
-    if args.has_key("HELP"):
+    if "HELP" in args:
         #print helptext
         helper()
     else:
@@ -212,7 +208,7 @@ def helper():
     # webbrowser.open seems not to work well
     browser = webbrowser.get()
     if not browser.open_new(helpspec):
-        print("Help file not found:" + helpspec)        
+        print(("Help file not found:" + helpspec))        
 try:    #override
     from extension import helper
 except:
@@ -223,7 +219,7 @@ def attributesFromDict(d):
     # based on Python Cookbook, 2nd edition 6.18
 
     self = d.pop('self')
-    for name, value in d.iteritems():
+    for name, value in d.items():
         setattr(self, name, value)
         
 class NonProcPivotTable(object):
