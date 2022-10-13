@@ -1,4 +1,5 @@
 Name: STATS FIND FILE
+Display-Name: Find File
 Dialog-Specs: STATS_FIND_FILE.spd
 Command-Specs: STATS_FIND_FILE.xml
 Code-Files: STATS_FIND_FILE.py
